@@ -1,0 +1,61 @@
+body{
+  margin:0;
+  padding:0;
+  font-family:sans-serif;
+}
+a { color:purple}
+caption {
+  text-align:left;
+  font-size:1.2em;
+  margin-bottom:1ex;
+}
+
+.dot{display:none}
+.decimals {vertical-align: text-top;font-size:.6em;font-weight:normal}
+
+#nav {
+  list-style-type:none;
+  margin:0;
+  padding:1em 0 0 1em;
+  background:#ddd;
+}
+#nav li {
+  display:inline;
+}
+#nav li a {
+  color:black;
+  text-decoration:none;
+  background:#eee;
+  padding:.5ex 1ex 0 1ex;
+  -moz-border-radius-topleft:1ex;
+  -moz-border-radius-topright:1ex;
+  border-bottom:1px solid #eee;
+  outline:none;
+}
+#nav li a.current,
+#nav li a:hover {
+  background:white;
+  padding-bottom:1ex;
+  border-bottom:none
+}
+#nav li a img {
+  vertical-align:top
+}
+
+#page {
+  margin:2em;
+}
+img{vertical-align:middle}
+a:hover img,
+a img {border:0}
+
+h1,h2,h3,h4,h5,h6{color:purple}
+#home_expenses {font-size:.9em}
+.listing thead th {color:purple;}
+.listing th,td {padding:.1ex 1ex}
+tbody .amount {text-align:right}
+.newday td {padding-top:2em}
+.newmonth td {border-top: 2px dashed #eee}
+
+label {display:block;width:7em;padding-right:1em;float:left;clear:left;text-align:right;}
+.submit {margin-left:8em;}

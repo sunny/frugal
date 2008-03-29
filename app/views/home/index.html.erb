@@ -1,0 +1,23 @@
+<h2>Dépenses par mois</h2>
+
+<table id="home_expenses" class="listing">
+  <thead>
+    <tr>
+      <th>Mois</th>
+      <% for category in @categories %>
+      <th><%= link_to h(category.title), category %></th>
+      <% end %>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for date, list in @monthly_expenses_by_category %>
+    <tr>
+      <th><%=h date.monthName %> <%=h date.year %></th>
+      <% for total in list %>
+      <td class="amount"><%= total == 0 ? "" : html_money(total) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

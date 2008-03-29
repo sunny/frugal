@@ -1,0 +1,13 @@
+<%= error_messages_for :expense %>
+
+<% form_for(@expense) do |form| %>
+  <%= render_partial 'form', form %>
+  <p class="submit">
+    <%= form.submit "Éditer" %>
+  </p>
+  <p class="submit">
+    <%= image_tag 'icons/calculator_delete.png', :alt => '' %> <%= link_to 'Supprimer', @expense, :method => 'delete', :confirm => 'Êtes-vous certain(e) de vouloir supprimer cette dépense ?' %>
+  </p>
+<% end %>
+
+

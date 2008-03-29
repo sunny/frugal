@@ -1,0 +1,23 @@
+
+  <p>
+    <label for="expense_title">Nom</label>
+    <%= form.text_field :title %>
+  </p>
+
+  <p class="expense_amount">
+    <label for="expense_amount">Montant</label>
+    <%= form.text_field :amount, :size => 6 %> €
+  </p>
+
+
+  <p>
+    <label for="expense_date_li">Date</label>
+    <%= form.date_select :date, :order => [:day, :month, :year];'' %>
+    <%= calendar_date_select_tag 'expense[date]', (@expense.date.nil? ? Time.new : @expense.date).strftime('%Y-%m-%d') %>
+  </p>
+
+  <p>
+    <label for="expense_category_id">Catégorie</label>
+    <%= form.select :category_id, Category.find(:all, :order => 'title').collect {|c| [c.title, c.id] } %>
+    ou <%= link_to 'nouvelle catégorie', new_category_path %>
+  </p>

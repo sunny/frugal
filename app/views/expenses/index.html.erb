@@ -1,0 +1,27 @@
+<p><%= image_tag('icons/calculator_add.png', :alt => '') %> <%= link_to 'Nouvelle', new_expense_path %></p>
+
+<table class="listing" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Montant</th>
+      <th>Nom</th>
+      <th>Date</th>
+      <th>Catégorie</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% curdate = nil %>
+  <% for expense in @expenses %>
+    <tr class="<%= 'newday' if curdate != nil and expense.date.day != curdate.day %> <%= 'newmonth' if curdate != nil and expense.date.month != curdate.month %>">
+      <td class="amount"><%= html_money expense.amount %></td>
+      <td><%=h expense.title %></td>
+      <td><%=h expense.date.strftime('%Y-%m-%d') %></td>
+      <td><%= expense.category.nil? ? "Aucune catégorie" : link_to(expense.category.title, expense.category) %></td>
+      <td><%= link_to image_tag('icons/calculator_edit.png', :alt => 'Éditer'), edit_expense_path(expense), :title => 'Éditer' %></td>
+    </tr>
+  <% curdate = expense.date %>
+  <% end %>
+  </tbody>
+</table>
+
+

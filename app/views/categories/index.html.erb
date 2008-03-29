@@ -1,0 +1,20 @@
+<%= error_messages_for :category %>
+
+<% form_for(@category) do |form| %>
+  <p>
+    <%= form.text_field :title %> 
+    <%= form.submit "Ajouter" %>
+  </p>
+<% end %>
+
+<table class="listing">
+  <tbody>
+<% for category in @categories %>
+  <tr>
+    <td><%= link_to h(category.title), category %></td>
+    <td><%= link_to image_tag('icons/book_edit.png', :alt=>'Éditer'), edit_category_path(category), :title=>'Éditer' %></td>
+    <td><%= link_to image_tag('icons/book_delete.png', :alt=>'Supprimer'), category, :confirm => 'Certain(e) ?', :method => :delete, :title=>'Supprimer' %></td>
+  </li>
+<% end %>
+</ul>
+

@@ -1,0 +1,8 @@
+<%= error_messages_for :expense %>
+
+<% form_for(@expense) do |form| %>
+  <%= render_partial 'form', form %>
+  <p>
+    <%= form.submit "Ajouter" %>
+  </p>
+<% end %>

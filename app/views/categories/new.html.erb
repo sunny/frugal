@@ -1,0 +1,8 @@
+<%= error_messages_for :category %>
+
+<% form_for(@category) do |form| %>
+  <p>
+    <%= form.text_field :title %> 
+    <%= form.submit "Ajouter" %> ou <%= link_to 'Annuler', categories_path %>
+  </p>
+<% end %>

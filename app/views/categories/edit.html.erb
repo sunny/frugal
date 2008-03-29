@@ -1,0 +1,12 @@
+<%= error_messages_for :category %>
+
+<% form_for(@category) do |form| %>
+  <p>
+    <%= form.text_field :title %> 
+    <%= form.submit "Éditer" %>
+  </p>
+  <p>
+    <%= image_tag 'icons/book_delete.png', :alt => '' %> <%= link_to 'Supprimer', @category, :method => 'delete', :confirm => 'Êtes-vous certain(e) de vouloir supprimer cette catégorie ?' %>
+  </p>
+<% end %>
+

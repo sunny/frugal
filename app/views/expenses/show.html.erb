@@ -1,0 +1,22 @@
+<p>
+  <strong>Titre&nbsp;:</strong>
+  <%=h @expense.title %>
+</p>
+
+<p>
+  <strong>Montant&nbsp;:</strong>
+  <%= html_money @expense.amount %>&nbsp;&euro;
+</p>
+
+<p>
+  <strong>Date&nbsp;:</strong>
+  <%=h @expense.date.strftime('%Y-%m-%d') %>
+</p>
+
+<p>
+  <strong>Categorie&nbsp;:</strong>
+  <%=link_to h(@expense.category.title), @expense.category %>
+</p>
+
+
+<p><%= image_tag('icons/calculator_edit.png', :alt=>'') %> <%= link_to 'Éditer', edit_expense_path(@expense) %></p>
