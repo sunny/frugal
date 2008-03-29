@@ -3,18 +3,21 @@ Frugal
 
 Frugal est une application permettant de suivre ses dépenses mensuelles.
 
-Auteur : Sunny Ripert <http://sunfox.org>
-Licence : WTFPL <http://sam.zoy.org/wtfpl/>
+Licence
+-------
+
+- Auteur : Sunny Ripert <http://sunfox.org>
+- Licence : WTFPL <http://sam.zoy.org/wtfpl/>
 
 À propos
 --------
 
 Dans Frugal pas de rentrées d'argent, de comptes, de chéquiers ni d'utilisateurs.
 Juste des dépenses et des catégories de dépenses (Alimentation, Factures,
-Sorties, ...).
+Sorties, ...). Rentrer des dépenses (depuis des tickets par exemple) est simplifié
+au maximum.
 
-Elle me sert à savoir où vont mes sous durant le mois et je peux les comparer
-facilement avec mes rentrées d'argent (que je connais par cœur, elles). Cela me
-permet également de savoir dans quelle catégorie est ce que je dépense trop.
-
+Frugal sert à se savoir combien l'on dépense et dans quelle catégorie l'on dépense
+trop. Pour chaque mois cela permet de comparer facilement les dépenses totales
+avec les rentrées d'argent (que l'on connait généralement par cœur, elles).
 
