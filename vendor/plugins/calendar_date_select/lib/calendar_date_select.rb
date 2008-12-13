@@ -9,6 +9,11 @@ class CalendarDateSelect
       :time => " %I:%M %p",
       :javascript_include => "format_hyphen_ampm"
     },
+    :iso_date => {
+      :date => "%Y-%m-%d", 
+      :time => " %H:%M",
+      :javascript_include => "format_iso_date"
+    }, 
     :finnish => {
       :date => "%d.%m.%Y",
       :time => " %H:%M",
@@ -28,6 +33,11 @@ class CalendarDateSelect
       :date => "%d/%m/%Y",
       :time => " %H:%M",
       :javascript_include => "format_italian"
+    },
+    :db => {
+      :date => "%Y-%m-%d",
+      :time => "%H:%M",
+      :javascript_include => "format_db"
     }
   }
   
@@ -67,7 +77,7 @@ class CalendarDateSelect
   module FormHelper
     def calendar_date_select_tag( name, value = nil, options = {})
       calendar_options = calendar_date_select_process_options(options)
-      value = (value.strftime(calendar_options[:format]) rescue value) if (value.respond_to?("strftime"))
+      value = format_time(value, calendar_options)
       
       calendar_options.delete(:format)
       
@@ -78,6 +88,21 @@ class CalendarDateSelect
       
       calendar_date_select_output(tag, calendar_options)
     end
+    
+    def format_time(value, options = {})
+      if value.respond_to?("strftime")
+        if options[:format]
+          value = value.strftime(options[:format])
+        else
+          if options.has_key? :time
+            value = value.strftime(CalendarDateSelect.date_format_string(options[:time]))
+          else
+            value = CalendarDateSelect.format_date(value)
+          end
+        end
+      end
+      value
+   end
     
     # extracts any options passed into calendar date select, appropriating them to either the Javascript call or the html tag.
     def calendar_date_select_process_options(options)
@@ -119,7 +144,7 @@ class CalendarDateSelect
     end
     
     def calendar_date_select(object, method, options={})
-      obj = options.include?(:object) ? options[:object] : instance_eval("@#{object}")
+      obj = options[:object] || instance_variable_get("@#{object}")
       
       if !options.include?(:time) && obj.class.respond_to?("columns_hash")
         column_type = (obj.class.columns_hash[method.to_s].type rescue nil)

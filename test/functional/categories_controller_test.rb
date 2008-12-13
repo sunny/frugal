@@ -19,7 +19,7 @@ class CategoriesControllerTest < ActionController::TestCase
       post :create, :category => { }
     end
 
-    assert_redirected_to category_path(assigns(:category))
+    assert_redirected_to categories_path
   end
 
   def test_should_show_category
@@ -34,7 +34,7 @@ class CategoriesControllerTest < ActionController::TestCase
 
   def test_should_update_category
     put :update, :id => 1, :category => { }
-    assert_redirected_to category_path(assigns(:category))
+    assert_redirected_to categories_path
   end
 
   def test_should_destroy_category

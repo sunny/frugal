@@ -16,10 +16,11 @@ class ExpensesControllerTest < ActionController::TestCase
 
   def test_should_create_expense
     assert_difference('Expense.count') do
-      post :create, :expense => { }
+      post :create, :expense => { :amount => '10',
+        :date => '2008-12-12' }
     end
 
-    assert_redirected_to expense_path(assigns(:expense))
+    assert_redirected_to new_expense_path
   end
 
   def test_should_show_expense

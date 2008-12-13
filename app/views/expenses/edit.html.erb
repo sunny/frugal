@@ -1,7 +1,7 @@
 <%= error_messages_for :expense %>
 
 <% form_for(@expense) do |form| %>
-  <%= render_partial 'form', form %>
+  <%= render(:partial => 'form', :locals => { :form => form }) %>
   <p class="submit">
     <%= form.submit "Éditer" %>
   </p>
